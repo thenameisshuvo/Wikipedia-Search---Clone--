@@ -218,3 +218,38 @@ body {
 .suggestion-item:hover {
     background-color: #f0f0f0;
 }
+:root {
+    --bg-color: #fff;
+    --border-color: hsl(0, 0%, 83%);
+    --text-color: #000;
+    --suggestion-bg: #fff;
+    --suggestion-hover-bg: #f0f0f0;
+}
+
+body.dark-mode {
+    --bg-color: #121212;
+    --border-color: hsl(0, 0%, 50%);
+    --text-color: #e0e0e0;
+    --suggestion-bg: #1e1e1e;
+    --suggestion-hover-bg: #333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.suggestions {
+    background-color: var(--suggestion-bg);
+    border: 1px solid var(--border-color);
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: var(--suggestion-hover-bg);
+}

@@ -32,6 +32,11 @@ async function handleSubmit(event) {
     } finally {
         spinner.classList.add('hidden');
     }
+    
+form.addEventListener('submit', () => {
+    suggestionsContainer.innerHTML = '';
+});
+
 }
 
 async function searchWikipedia(searchQuery) {
@@ -68,3 +73,39 @@ function displayResults(results) {
 }
 
 form.addEventListener('submit', handleSubmit);
+
+
+const suggestionsContainer = document.querySelector('.js-suggestions');
+
+async function fetchSuggestions(query) {
+    const endpoint = `https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&search=${query}`;
+    const response = await fetch(endpoint);
+    const data = await response.json();
+    return data[1]; // Returns the array of suggestions
+}
+
+document.querySelector('.js-search-input').addEventListener('input', async function () {
+    const query = this.value.trim();
+    if (query.length > 2) {
+        const suggestions = await fetchSuggestions(query);
+        displaySuggestions(suggestions);
+    } else {
+        suggestionsContainer.innerHTML = '';
+    }
+});
+
+function displaySuggestions(suggestions) {
+    suggestionsContainer.innerHTML = '';
+    suggestions.forEach((suggestion) => {
+        const suggestionItem = document.createElement('div');
+        suggestionItem.textContent = suggestion;
+        suggestionItem.classList.add('suggestion-item');
+        suggestionItem.addEventListener('click', () => {
+            document.querySelector('.js-search-input').value = suggestion;
+            suggestionsContainer.innerHTML = '';
+            form.dispatchEvent(new Event('submit'));
+        });
+        suggestionsContainer.appendChild(suggestionItem);
+    });
+}
+

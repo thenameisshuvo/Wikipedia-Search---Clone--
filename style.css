@@ -283,6 +283,6 @@ body.dark-mode ::-webkit-scrollbar-thumb {
 
     .dark-mode-toggle {
         padding: 10px 15px;
-        font-size: 9px;
+        font-size: 10px;
     }
 }

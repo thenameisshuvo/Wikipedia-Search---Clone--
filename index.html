@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <button class="dark-mode-toggle">Toggle Dark Mode</button>
-    
-
- <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
     <title>Wikipedia Clone</title>
 </head>
 
 <body>
+    <!-- Dark Mode Toggle with SVG Icons -->
+    <button class="dark-mode-toggle">
+        <img src="/toggle-left.svg" alt="Light Mode" class="left-toggle">
+        <img src="/toggle-right.svg" alt="Dark Mode" class="right-toggle">
+    </button>
+
     <main>
         <header class="header">
             <img class="logo"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/657px-Wikipedia-logo-v2.svg.png"
                 alt="Wikipedia Logo" />
-
             <form class="search-form js-search-form">
                 <input placeholder="Type a keyword and press Enter to search" type="search"
                     class="search-input js-search-input" autofocus />
-                    <div class="suggestions js-suggestions"></div> <!-- Added for suggestions -->
+                <div class="suggestions js-suggestions"></div>
             </form>
         </header>
-        
 
         <div class="loading-indicator">
             <div class="sk-chase js-spinner hidden">
@@ -41,13 +41,11 @@
         <section class="search-results js-search-results"></section>
     </main>
 
+    <footer class="footer">
+        <p>Developed by <a href="https://github.com/thenameisshuvo" target="_blank">Tanvir Rahman Shuvo</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
-
-<footer class="footer">
-    <p>Developed by <a href="https://github.com/thenameisshuvo" target="_blank">Tanvir Rahman Shuvo</a></p>
-</footer>
-
 
 </html>

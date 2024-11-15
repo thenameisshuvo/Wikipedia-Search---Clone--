@@ -1,3 +1,4 @@
+/* Global Reset */
 html {
     box-sizing: border-box;
 }
@@ -10,6 +11,7 @@ html {
     padding: 0;
 }
 
+/* Variables */
 :root {
     --bg-color: #fff;
     --border-color: hsl(0, 0%, 83%);
@@ -26,6 +28,7 @@ body.dark-mode {
     --suggestion-hover-bg: #333;
 }
 
+/* Base Styles */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -33,6 +36,7 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Header */
 .header {
     display: flex;
     justify-content: center;
@@ -65,6 +69,7 @@ body {
     background-color: #f0f0f0;
 }
 
+/* Results */
 .search-results {
     width: 100%;
     max-width: 600px;
@@ -129,6 +134,7 @@ body.dark-mode .result-item {
     transform-origin: left;
 }
 
+/* Suggestions */
 .suggestions {
     background-color: var(--suggestion-bg);
     border: 1px solid var(--border-color);
@@ -148,6 +154,7 @@ body.dark-mode .result-item {
     background-color: var(--suggestion-hover-bg);
 }
 
+/* Dark Mode Toggle */
 .dark-mode-toggle {
     position: absolute;
     top: 20px;
@@ -177,6 +184,7 @@ body.dark-mode .dark-mode-toggle:hover {
     color: #fff;
 }
 
+/* Footer */
 .footer {
     text-align: center;
     padding: 20px;
@@ -209,6 +217,7 @@ body.dark-mode .footer a {
     color: #90ee90;
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -233,6 +242,12 @@ body.dark-mode ::-webkit-scrollbar-thumb {
 }
 
 /* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .search-input {
+        width: 500px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .header {
         flex-direction: column;
@@ -245,27 +260,29 @@ body.dark-mode ::-webkit-scrollbar-thumb {
 
     .search-input {
         width: calc(100% - 40px);
-        margin: 0 auto;
         font-size: 16px;
     }
 
-    .search-results {
-        padding: 0 20px;
-    }
-
     .dark-mode-toggle {
-        padding: 12px 25px;
-        font-size: 8px;
-        right: 10px;
-        top: 10px;
+        padding: 12px 20px;
+        font-size: 14px;
     }
 
     .footer {
         font-size: 12px;
         padding: 15px;
     }
+}
 
-    ::-webkit-scrollbar {
-        width: 8px;
+@media screen and (max-width: 480px) {
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .dark-mode-toggle {
+        padding: 10px 15px;
+        font-size: 9px;
     }
 }
